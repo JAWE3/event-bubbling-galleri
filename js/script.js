@@ -1,21 +1,15 @@
-// hent html-elementerne ind i variabler til thumbnails
 const thumbnails = document.querySelector(".gallery__thumbnails");
 const bigImg = document.querySelector(".gallery__bigImg");
 const thumbnail = document.querySelectorAll(".gallery__thumbnail");
-
-// hent html-elementerne ind i variabler til lightbox
 const lightbox = document.querySelector("#lightbox");
 const lightboxImage = document.querySelector("#lightboxImage");
 const closeBtn = document.querySelector("#closeBtn");
 const prevBtn = document.querySelector("#prevBtn");
 const nextBtn = document.querySelector("#nextBtn");
 
-// konverter NodeList til array og hent src + alt fra alle thumbnails
 const images = [...thumbnail].map((img) => img.src);
 const alttekster = [...thumbnail].map((imgtxt) => imgtxt.alt);
-// console.log(images);
 
-// currentImg skal sættes til 0 (første plads i array/nodelist)
 let currentImg = 0;
 
 function showNextImage() {
@@ -54,50 +48,44 @@ thumbnails.addEventListener("click", function (event) {
 	showImage(currentImg);
 });
 
-// LIGHTBOX FUNKTIONER
 document.addEventListener("click", function (event) {
-	// åbn lightbox
 	if (event.target === bigImg) {
 		lightbox.style.display = "flex";
 		return;
 	}
 
-	// skift til næste billede
 	if (event.target.closest("#nextBtn")) {
 		showNextImage();
 		return;
 	}
-	// skift til forrige billede
+
 	if (event.target.closest("#prevBtn")) {
 		showPrevImage();
 		return;
 	}
-	// luk lightbox ved tryk på closeBtn
+
 	if (event.target.closest("#closeBtn")) {
 		lightbox.style.display = "none";
 		return;
 	}
-	// luk lightbox ved tryk inde i lightbox
+
 	if (event.target === lightbox) {
 		lightbox.style.display = "none";
 	}
 });
 
-// TASTATUR FUNKTIONER
 document.addEventListener("keydown", function (event) {
 	if (event.key === "Escape") {
 		lightbox.style.display = "none";
 	}
-	// if (lightbox.style.display !== "flex") {
-	// 	return;
-	// }
+
 	if (event.key === "ArrowLeft") {
 		showPrevImage();
 	}
+
 	if (event.key === "ArrowRight") {
 		showNextImage();
 	}
 });
 
-// når siden loader, køres function showImage
 showImage(currentImg);

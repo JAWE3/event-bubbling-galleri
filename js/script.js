@@ -1,5 +1,5 @@
-const thumbnails = document.querySelector(".gallery__thumbnails");
-const bigImg = document.querySelector(".gallery__bigImg");
+const largeImage = document.querySelector("#largeImage");
+const thumbnails = document.querySelector("#thumbnails");
 const thumbnail = document.querySelectorAll(".gallery__thumbnail");
 const lightbox = document.querySelector("#lightbox");
 const lightboxImage = document.querySelector("#lightboxImage");
@@ -30,8 +30,8 @@ function showPrevImage() {
 
 function showImage(index) {
 	currentImg = index;
-	bigImg.src = images[index];
-	bigImg.alt = alttekster[index];
+	largeImage.src = images[index];
+	largeImage.alt = alttekster[index];
 	lightboxImage.src = images[index];
 	lightboxImage.alt = alttekster[index];
 	thumbnail.forEach((img) =>
@@ -49,7 +49,7 @@ thumbnails.addEventListener("click", function (event) {
 });
 
 document.addEventListener("click", function (event) {
-	if (event.target === bigImg) {
+	if (event.target === largeImage) {
 		lightbox.style.display = "flex";
 		return;
 	}

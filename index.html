@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="da">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+			integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js" defer></script>
+		<title>Event Bubbling Galleri Thumbnails</title>
+	</head>
+	<body>
+		<div class="gallery">
+			<div class="gallery__image">
+				<img id="bigImg" src="" alt="hund" class="gallery__bigImg" />
+			</div>
+			<div id="thumbnails" class="gallery__thumbnails">
+				<img
+					class="gallery__thumbnail gallery__thumbnail--active"
+					src="https://picsum.photos/id/237/640/480"
+					alt="labrador med hundeøjne" />
+				<img
+					class="gallery__thumbnail"
+					src="https://picsum.photos/id/238/640/480"
+					alt="new york city" />
+				<img
+					class="gallery__thumbnail"
+					src="https://picsum.photos/id/239/640/480"
+					alt="mælkebøtte" />
+				<img
+					class="gallery__thumbnail"
+					src="https://picsum.photos/id/240/640/480"
+					alt="stentrappe med person" />
+			</div>
+		</div>
+
+		<!-- LIGHTBOX -->
+		<div id="lightbox" class="lightbox">
+			<div class="lightbox__content">
+				<button id="prevBtn" class="lightbox__prevBtn">
+					<i class="fa-solid fa-chevron-left"></i>
+				</button>
+
+				<img src="" alt="" id="lightboxImage" class="lightbox__image" />
+
+				<button id="nextBtn" class="lightbox__nextBtn">
+					<i class="fa-solid fa-chevron-right"></i>
+				</button>
+			</div>
+			<button id="closeBtn" class="lightbox__closeBtn">
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+		</div>
+	</body>
+</html>
